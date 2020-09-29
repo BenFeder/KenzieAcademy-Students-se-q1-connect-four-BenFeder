@@ -1,11 +1,11 @@
 let boardMap = [
   // columns and rows are displayed as is shown on the visual board, but column-direction is reversed when it comes to discs placed
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
-  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null], //row 1
+  [null, null, null, null, null, null, null], //row 2
+  [null, null, null, null, null, null, null], //row 3
+  [null, null, null, null, null, null, null], //row 4
+  [null, null, null, null, null, null, null], //row 5
+  [null, null, null, null, null, null, null], //row 6
 ];
 
 startGame();
