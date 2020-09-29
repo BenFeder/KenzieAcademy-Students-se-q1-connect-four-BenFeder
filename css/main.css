@@ -1,2 +1,37 @@
+* {
+  box-sizing: border-box;
+}
 
-/*  Put your CSS Here */
+h1 {
+  margin-left: 50px;
+}
+
+#gameboard {
+  display: flex;
+  margin: 50px 0 0 50px;
+}
+
+.square {
+  height: 75px;
+  width: 75px;
+  border: 2px solid darkblue;
+}
+
+.disc {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.redDisc {
+  background-color: red;
+}
+
+.blackDisc {
+  background-color: black;
+}
+
+.column {
+  display: flex;
+  flex-direction: column-reverse;
+}
