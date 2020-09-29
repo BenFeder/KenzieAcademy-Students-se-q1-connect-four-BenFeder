@@ -1,23 +1,37 @@
-let columnOne = document.getElementById("columnOne");
-columnOne.addEventListener("click", dropPiece);
+let boardMap = [
+  // columns and rows are displayed as is shown on the visual board, but column-direction is reversed when it comes to discs placed
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null],
+];
 
-let columnTwo = document.getElementById("columnTwo");
-columnTwo.addEventListener("click", dropPiece);
+startGame();
 
-let columnThree = document.getElementById("columnThree");
-columnThree.addEventListener("click", dropPiece);
+function startGame() {
+  let columnOne = document.getElementById("columnOne");
+  columnOne.addEventListener("click", dropPiece);
 
-let columnFour = document.getElementById("columnFour");
-columnFour.addEventListener("click", dropPiece);
+  let columnTwo = document.getElementById("columnTwo");
+  columnTwo.addEventListener("click", dropPiece);
 
-let columnFive = document.getElementById("columnFive");
-columnFive.addEventListener("click", dropPiece);
+  let columnThree = document.getElementById("columnThree");
+  columnThree.addEventListener("click", dropPiece);
 
-let columnSix = document.getElementById("columnSix");
-columnSix.addEventListener("click", dropPiece);
+  let columnFour = document.getElementById("columnFour");
+  columnFour.addEventListener("click", dropPiece);
 
-let columnSeven = document.getElementById("columnSeven");
-columnSeven.addEventListener("click", dropPiece);
+  let columnFive = document.getElementById("columnFive");
+  columnFive.addEventListener("click", dropPiece);
+
+  let columnSix = document.getElementById("columnSix");
+  columnSix.addEventListener("click", dropPiece);
+
+  let columnSeven = document.getElementById("columnSeven");
+  columnSeven.addEventListener("click", dropPiece);
+}
 
 function dropPiece(event) {
   // check which column was clicked with event.currentTarget
@@ -25,7 +39,83 @@ function dropPiece(event) {
     let currentPlayer = document.createElement("div");
     currentPlayer.className = "disc redDisc";
     event.currentTarget.append(currentPlayer);
+    updateBoardMap();
     switchPlayer();
+  }
+}
+
+function updateBoardMap() {
+  for (let rows = 0; rows < boardMap.length; rows++) {
+    if (columnOne.childElementCount > 0) {
+      let columnOneChildren = columnOne.childElementCount;
+      for (let child = 0; child < columnOneChildren; child++) {
+        if (columnOne.childElement == 1) {
+          boardMap[rows][0] = 1;
+        } else if (columnOne.childElement == 2) {
+          boardMap[rows][0] = 2;
+        }
+      }
+    }
+    if (columnTwo.childElementCount > 0) {
+      let columnTwoChildren = columnTwo.childElementCount;
+      for (let child = 0; child < columnTwoChildren; child++) {
+        if (columnTwo.childElement == 1) {
+          boardMap[rows][1] = 1;
+        } else if (columnTwo.childElement == 2) {
+          boardMap[rows][1] = 2;
+        }
+      }
+    }
+    if (columnThree.childElementCount > 0) {
+      let columnThreeChildren = columnThree.childElementCount;
+      for (let child = 0; child < columnThreeChildren; child++) {
+        if (columnThree.childElement == 1) {
+          boardMap[rows][2] = 1;
+        } else if (columnThree.childElement == 2) {
+          boardMap[rows][2] = 2;
+        }
+      }
+    }
+    if (columnFour.childElementCount > 0) {
+      let columnFourChildren = columnFour.childElementCount;
+      for (let child = 0; child < columnFourChildren; child++) {
+        if (columnFour.childElement == 1) {
+          boardMap[rows][3] = 1;
+        } else if (columnFour.childElement == 2) {
+          boardMap[rows][3] = 2;
+        }
+      }
+    }
+    if (columnFive.childElementCount > 0) {
+      let columnFiveChildren = columnFive.childElementCount;
+      for (let child = 0; child < columnFiveChildren; child++) {
+        if (columnFive.childElement == 1) {
+          boardMap[rows][4] = 1;
+        } else if (columnFive.childElement == 2) {
+          boardMap[rows][4] = 2;
+        }
+      }
+    }
+    if (columnSix.childElementCount > 0) {
+      let columnSixChildren = columnSix.childElementCount;
+      for (let child = 0; child < columnSixChildren; child++) {
+        if (columnSix.childElement == 1) {
+          boardMap[rows][5] = 1;
+        } else if (columnSix.childElement == 2) {
+          boardMap[rows][5] = 2;
+        }
+      }
+    }
+    if (columnSeven.childElementCount > 0) {
+      let columnSevenChildren = columnSeven.childElementCount;
+      for (let child = 0; child < columnSevenChildren; child++) {
+        if (columnSeven.childElement == 1) {
+          boardMap[rows][6] = 1;
+        } else if (columnSeven.childElement == 2) {
+          boardMap[rows][6] = 2;
+        }
+      }
+    }
   }
 }
 
@@ -61,14 +151,7 @@ function dropPiece(event) {
 /* // RANDY BASE CODE TO EDIT FROM
 // vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 
-let boardModel = [
-[null, null, null, null,null, null,null]
-[null, null, null, null,null, null,null]
-[null, null, null, null,null, null,null]
-[null, null, null, null,null, null,null]
-[null, null, null, null,null, null,null]
-[null, null, null, null,null, null,null]
-]
+
 
 let currentPlayer = 1 //1 or 2
 
@@ -87,7 +170,7 @@ function switchPlayer() {
   // if current player is black, change to red
 }
 
-const isGameOver = function(boardModel) {
+const isGameOver = function(boardMap) {
     //TODO: See if the game is a tie or win
     return false// or true
 }
