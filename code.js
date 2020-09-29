@@ -49,9 +49,9 @@ function updateBoardMap() {
     if (columnOne.childElementCount > 0) {
       let columnOneChildren = columnOne.childElementCount;
       for (let child = 0; child < columnOneChildren; child++) {
-        if (columnOne.childElement == 1) {
+        if (columnOne.childElement.style.backgroundColor == "red") {
           boardMap[rows][0] = 1;
-        } else if (columnOne.childElement == 2) {
+        } else if (columnOne.childElement.style.backgroundColor == "black") {
           boardMap[rows][0] = 2;
         }
       }
@@ -59,9 +59,9 @@ function updateBoardMap() {
     if (columnTwo.childElementCount > 0) {
       let columnTwoChildren = columnTwo.childElementCount;
       for (let child = 0; child < columnTwoChildren; child++) {
-        if (columnTwo.childElement == 1) {
+        if (columnTwo.childElement.style.backgroundColor == "red") {
           boardMap[rows][1] = 1;
-        } else if (columnTwo.childElement == 2) {
+        } else if (columnTwo.childElement.style.backgroundColor == "black") {
           boardMap[rows][1] = 2;
         }
       }
@@ -69,9 +69,9 @@ function updateBoardMap() {
     if (columnThree.childElementCount > 0) {
       let columnThreeChildren = columnThree.childElementCount;
       for (let child = 0; child < columnThreeChildren; child++) {
-        if (columnThree.childElement == 1) {
+        if (columnThree.childElement.style.backgroundColor == "red") {
           boardMap[rows][2] = 1;
-        } else if (columnThree.childElement == 2) {
+        } else if (columnThree.childElement.style.backgroundColor == "black") {
           boardMap[rows][2] = 2;
         }
       }
@@ -79,9 +79,9 @@ function updateBoardMap() {
     if (columnFour.childElementCount > 0) {
       let columnFourChildren = columnFour.childElementCount;
       for (let child = 0; child < columnFourChildren; child++) {
-        if (columnFour.childElement == 1) {
+        if (columnFour.childElement.style.backgroundColor == "red") {
           boardMap[rows][3] = 1;
-        } else if (columnFour.childElement == 2) {
+        } else if (columnFour.childElement.style.backgroundColor == "black") {
           boardMap[rows][3] = 2;
         }
       }
@@ -89,9 +89,9 @@ function updateBoardMap() {
     if (columnFive.childElementCount > 0) {
       let columnFiveChildren = columnFive.childElementCount;
       for (let child = 0; child < columnFiveChildren; child++) {
-        if (columnFive.childElement == 1) {
+        if (columnFive.childElement.style.backgroundColor == "red") {
           boardMap[rows][4] = 1;
-        } else if (columnFive.childElement == 2) {
+        } else if (columnFive.childElement.style.backgroundColor == "black") {
           boardMap[rows][4] = 2;
         }
       }
@@ -99,9 +99,9 @@ function updateBoardMap() {
     if (columnSix.childElementCount > 0) {
       let columnSixChildren = columnSix.childElementCount;
       for (let child = 0; child < columnSixChildren; child++) {
-        if (columnSix.childElement == 1) {
+        if (columnSix.childElement.style.backgroundColor == "red") {
           boardMap[rows][5] = 1;
-        } else if (columnSix.childElement == 2) {
+        } else if (columnSix.childElement.style.backgroundColor == "black") {
           boardMap[rows][5] = 2;
         }
       }
@@ -109,9 +109,9 @@ function updateBoardMap() {
     if (columnSeven.childElementCount > 0) {
       let columnSevenChildren = columnSeven.childElementCount;
       for (let child = 0; child < columnSevenChildren; child++) {
-        if (columnSeven.childElement == 1) {
+        if (columnSeven.childElement.style.backgroundColor == "red") {
           boardMap[rows][6] = 1;
-        } else if (columnSeven.childElement == 2) {
+        } else if (columnSeven.childElement.style.backgroundColor == "black") {
           boardMap[rows][6] = 2;
         }
       }
