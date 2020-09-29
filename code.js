@@ -41,6 +41,8 @@ function dropPiece(event) {
     event.currentTarget.append(currentPlayer);
     updateBoardMap();
     switchPlayer();
+    checkWin();
+    checkTie();
   }
 }
 
