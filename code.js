@@ -50,7 +50,9 @@ function dropPiece(event) {
     }
     updateBoardMap();
   }
-  checkWin();
+  if (checkWin()) {
+    let displayWin = document.createElement;
+  }
   checkTie();
 }
 
