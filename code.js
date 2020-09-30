@@ -1,5 +1,5 @@
 let boardMap = [
-  // columns and rows are displayed as is shown on the visual board, but column-direction is reversed when it comes to discs placed
+  // columns and rows are displayed as is shown on the visual board
   [null, null, null, null, null, null, null], //row 1
   [null, null, null, null, null, null, null], //row 2
   [null, null, null, null, null, null, null], //row 3
@@ -47,7 +47,7 @@ function dropPiece(event) {
 }
 
 function updateBoardMap() {
-  for (let rows = 0; rows < boardMap.length; rows++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
     if (columnOne.childElementCount > 0) {
       let columnOneChildren = columnOne.childElementCount;
       for (let child = 0; child < columnOneChildren; child++) {
