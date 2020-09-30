@@ -39,19 +39,34 @@ function dropPiece(event) {
   // check which column was clicked with event.currentTarget
   if (event.currentTarget.childElementCount < 6) {
     switchPlayer();
-    if (currentPlayer == "1") {
+    if (currentPlayer == 1) {
       let currentPiece = document.createElement("div");
       currentPiece.className = "disc redDisc";
       event.currentTarget.append(currentPiece);
-    } else if (currentPlayer == "2") {
+    } else if (currentPlayer == 2) {
       let currentPiece = document.createElement("div");
       currentPiece.className = "disc blackDisc";
       event.currentTarget.append(currentPiece);
     }
     updateBoardMap();
-    checkWin();
-    checkTie();
   }
+
+  if (event.currentTarget.childElementCount == 5) {
+    switchPlayer();
+    if (currentPlayer == 1) {
+      let currentPiece = document.createElement("div");
+      currentPiece.className = "disc redDisc";
+      event.currentTarget.append(currentPiece);
+      updateBoardMap();
+    } else if (currentPlayer == 2) {
+      let currentPiece = document.createElement("div");
+      currentPiece.className = "disc blackDisc";
+      event.currentTarget.append(currentPiece);
+      updateBoardMap();
+    }
+  }
+  checkWin();
+  checkTie();
 }
 
 function updateBoardMap() {
@@ -144,18 +159,50 @@ function updateBoardMap() {
 }
 
 function checkWin() {
+  checkHorizontal();
+  checkVertical();
+  checkDiagonalDown();
+  checkDiagonalUp();
+}
+
+function checkHorizontal() {
+  // code goes here
+}
+
+function checkVertical() {
+  // code goes here
+}
+
+function checkDiagonalDown() {
+  // code goes here
+}
+
+function checkDiagonalUp() {
   // code goes here
 }
 
 function checkTie() {
-  // code goes here
+  if (
+    columnOne.childElementCount == 6 &&
+    columnTwo.childElementCount == 6 &&
+    columnThree.childElementCount == 6 &&
+    columnFour.childElementCount == 6 &&
+    columnFive.childElementCount == 6 &&
+    columnSix.childElementCount == 6 &&
+    columnSeven.childElementCount == 6
+  ) {
+    let heading = document.getElementById("heading");
+    let displayTie = document.createElement("div");
+    displayTie.innerText = "Tie game!";
+    heading.append(displayTie);
+  }
 }
 
 function switchPlayer() {
-  if (currentPlayer == "1") {
-    currentPlayer = "2";
-  } else if (currentPlayer == "2") {
-    currentPlayer = "1";
+  if (currentPlayer == 1) {
+    currentPlayer = 2;
+  } else if (currentPlayer == 2) {
+    currentPlayer = 1;
   }
 }
 
