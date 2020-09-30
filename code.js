@@ -147,6 +147,7 @@ function checkWin() {
 function checkHorizontal() {
   for (let rows = 0; rows < boardMap.length; rows++) {
     for (let column = 0; column < rows.length; column++) {
+<<<<<<< HEAD
 
       if (boardMap[rows][column] == 1) {
         countOne++;
@@ -156,66 +157,45 @@ function checkHorizontal() {
         if (countOne == 4) {
           return true;
         }
+=======
+      if (
+        boardMap[rows][column] == 1 &&
+        boardMap[rows][column + 1] == 1 &&
+        boardMap[rows][column + 2] == 1 &&
+        boardMap[rows][column + 3] == 1
+      ) {
+        return true;
+>>>>>>> 6b68f10ffc338bcf337bd8df9e3aad09bc504a93
       }
-      if (boardMap[rows][column] == 2) {
-        countTwo++;
-        if (boardMap[rows][column + 1] == 1 || null) {
-          countTwo = 0;
-        }
-        if (countTwo == 4) {
-          return true;
-        }
+      if (
+        boardMap[rows][column] == 2 &&
+        boardMap[rows][column + 1] == 2 &&
+        boardMap[rows][column + 2] == 2 &&
+        boardMap[rows][column + 3] == 2
+      ) {
+        return true;
       }
     }
   }
 }
 
 function checkVertical() {
-  for (let column = 0; column < rows.length; column++) {
-    let countOne = 0;
-    let countTwo = 0;
-
-    if (boardMap[rows][column] == 1) {
-      countOne++;
-      if (boardMap[rows + 1][column] == 2 || null) {
-        countOne = 0;
-      }
-      if (countOne == 4) {
+  for (let rows = 0; rows < boardMap.length; rows++) {
+    for (let column = 0; column < rows.length; column++) {
+      if (
+        boardMap[rows][column] == 1 &&
+        boardMap[rows + 1][column] == 1 &&
+        boardMap[rows + 2][column] == 1 &&
+        boardMap[rows + 3][column] == 1
+      ) {
         return true;
       }
-    }
-    if (boardMap[rows][column] == 2) {
-      countTwo++;
-      if (boardMap[rows + 1][column] == 1 || null) {
-        countTwo = 0;
-      }
-      if (countTwo == 4) {
-        return true;
-      }
-    }
-  }
-}
-
-function checkDiagonalDown() {
-  for (let column = 0; column < rows.length; column++) {
-    let countOne = 0;
-    let countTwo = 0;
-
-    if (boardMap[rows][column] == 1 && boardMap[rows + 1][column + 1] == 1) {
-      countOne++;
-      if (boardMap[rows + 1][column + 1] == 2 || null) {
-        countOne = 0;
-      }
-      if (countOne == 4) {
-        return true;
-      }
-    }
-    if (boardMap[rows][column] == 2 && boardMap[rows + 1][column + 1] == 2) {
-      countTwo++;
-      if (boardMap[rows + 1][column + 1] == 1 || null) {
-        countTwo = 0;
-      }
-      if (countTwo == 4) {
+      if (
+        boardMap[rows][column] == 2 &&
+        boardMap[rows + 1][column] == 2 &&
+        boardMap[rows + 2][column] == 2 &&
+        boardMap[rows + 3][column] == 2
+      ) {
         return true;
       }
     }
@@ -223,7 +203,49 @@ function checkDiagonalDown() {
 }
 
 function checkDiagonalUp() {
-  // code goes here
+  for (let rows = 0; rows < boardMap.length; rows++) {
+    for (let column = 0; column < rows.length; column++) {
+      if (
+        boardMap[rows][column] == 1 &&
+        boardMap[rows + 1][column + 1] == 1 &&
+        boardMap[rows + 2][column + 2] == 1 &&
+        boardMap[rows + 3][column + 3] == 1
+      ) {
+        return true;
+      }
+      if (
+        boardMap[rows][column] == 2 &&
+        boardMap[rows + 1][column + 1] == 2 &&
+        boardMap[rows + 2][column + 2] == 2 &&
+        boardMap[rows + 3][column + 3] == 2
+      ) {
+        return true;
+      }
+    }
+  }
+}
+
+function checkDiagonalDown() {
+  for (let rows = 0; rows < boardMap.length; rows++) {
+    for (let column = 0; column < rows.length; column++) {
+      if (
+        boardMap[rows][column] == 1 &&
+        boardMap[rows - 1][column + 1] == 1 &&
+        boardMap[rows - 2][column + 2] == 1 &&
+        boardMap[rows - 3][column + 3] == 1
+      ) {
+        return true;
+      }
+      if (
+        boardMap[rows][column] == 2 &&
+        boardMap[rows - 1][column + 1] == 2 &&
+        boardMap[rows - 2][column + 2] == 2 &&
+        boardMap[rows - 3][column + 3] == 2
+      ) {
+        return true;
+      }
+    }
+  }
 }
 
 function checkTie() {
