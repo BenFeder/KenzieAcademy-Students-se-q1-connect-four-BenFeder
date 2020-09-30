@@ -50,21 +50,6 @@ function dropPiece(event) {
     }
     updateBoardMap();
   }
-
-  if (event.currentTarget.childElementCount == 5) {
-    switchPlayer();
-    if (currentPlayer == 1) {
-      let currentPiece = document.createElement("div");
-      currentPiece.className = "disc redDisc";
-      event.currentTarget.append(currentPiece);
-      updateBoardMap();
-    } else if (currentPlayer == 2) {
-      let currentPiece = document.createElement("div");
-      currentPiece.className = "disc blackDisc";
-      event.currentTarget.append(currentPiece);
-      updateBoardMap();
-    }
-  }
   checkWin();
   checkTie();
 }
