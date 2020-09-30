@@ -151,11 +151,38 @@ function checkWin() {
 }
 
 function checkHorizontal() {
-  // code goes here
+  for (let rows =0; rows<boardMap.length; rows++) {
+    for (let column =0; column < rows.length; column++) {
+       let countOne = 0
+       let countTwo = 0
+       
+    } if (boardMap[rows][column] == 1) {
+        countOne++;
+        if(boardMap[rows][column +1]  == 2 || null) {
+            countOne = 0
+        }
+        if (countOne == 4) {
+            return true
+        } 
+    } if (boardMap[rows][column] == 2) {
+        countTwo++;
+        if(boardMap[rows][column +1] == 1|| null) {
+            countTwo= 0
+        }
+        if(countTwo == 4) {
+            return true
+        }
+    } 
+
+      //Check each row and record the value ( 1 or 2) 
+      //If row == 1 && row+1 == to 2 stop checking
+      //If row == 1 && row + 1==1 && row + 2 = 1 && row
+  } 
+    
 }
 
 function checkVertical() {
-  // code goes here
+  
 }
 
 function checkDiagonalDown() {
