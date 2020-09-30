@@ -147,6 +147,17 @@ function checkWin() {
 function checkHorizontal() {
   for (let rows = 0; rows < boardMap.length; rows++) {
     for (let column = 0; column < rows.length; column++) {
+<<<<<<< HEAD
+
+      if (boardMap[rows][column] == 1) {
+        countOne++;
+        if (boardMap[rows][column + 1] == 2 || null) {
+          countOne = 0;
+        }
+        if (countOne == 4) {
+          return true;
+        }
+=======
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows][column + 1] == 1 &&
@@ -154,6 +165,7 @@ function checkHorizontal() {
         boardMap[rows][column + 3] == 1
       ) {
         return true;
+>>>>>>> 6b68f10ffc338bcf337bd8df9e3aad09bc504a93
       }
       if (
         boardMap[rows][column] == 2 &&
@@ -255,9 +267,21 @@ function checkTie() {
 
 function switchPlayer() {
   if (currentPlayer == 1) {
+    let heading = document.getElementById("heading")
+    heading.innerHTML = "";
     currentPlayer = 2;
+    let blackturn = document.createElement("div")
+    blackturn.innerText = "Red Turn"
+    console.log(blackturn)
+    heading.append(blackturn)
   } else if (currentPlayer == 2) {
+    let heading = document.getElementById("heading")
+    heading.innerHTML = "";
     currentPlayer = 1;
+    let Redturn = document.createElement("div")
+    Redturn.innerText = "Black Turn"
+    console.log(Redturn)
+    heading.append(Redturn)
   }
 }
 
@@ -304,7 +328,7 @@ const columnisFull = function (columnEl) {
 }
 const dropDisc = function(columnEl) {
     //TODO : Inser the correct color disc into the correct div
-    //       DIV n the DOM and also add the disc in the 
+    //       DIV n the DOM and also add the disc in the
     //       current spot in the board model
 
 function switchPlayer() {
