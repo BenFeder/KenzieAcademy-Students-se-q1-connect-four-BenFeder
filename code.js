@@ -147,8 +147,6 @@ function checkWin() {
 function checkHorizontal() {
   for (let rows = 0; rows < boardMap.length; rows++) {
     for (let column = 0; column < rows.length; column++) {
-      let countOne = 0;
-      let countTwo = 0;
 
       if (boardMap[rows][column] == 1) {
         countOne++;
@@ -247,9 +245,21 @@ function checkTie() {
 
 function switchPlayer() {
   if (currentPlayer == 1) {
+    let heading = document.getElementById("heading")
+    heading.innerHTML = "";
     currentPlayer = 2;
+    let blackturn = document.createElement("div")
+    blackturn.innerText = "Red Turn"
+    console.log(blackturn)
+    heading.append(blackturn)
   } else if (currentPlayer == 2) {
+    let heading = document.getElementById("heading")
+    heading.innerHTML = "";
     currentPlayer = 1;
+    let Redturn = document.createElement("div")
+    Redturn.innerText = "Black Turn"
+    console.log(Redturn)
+    heading.append(Redturn)
   }
 }
 
@@ -296,7 +306,7 @@ const columnisFull = function (columnEl) {
 }
 const dropDisc = function(columnEl) {
     //TODO : Inser the correct color disc into the correct div
-    //       DIV n the DOM and also add the disc in the 
+    //       DIV n the DOM and also add the disc in the
     //       current spot in the board model
 
 function switchPlayer() {
