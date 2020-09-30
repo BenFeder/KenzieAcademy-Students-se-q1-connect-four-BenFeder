@@ -51,8 +51,13 @@ function dropPiece(event) {
     updateBoardMap();
   }
   if (checkWin()) {
-    let displayWin = document.createElement;
+    let heading = document.getElementById("heading");
+    heading.innerHTML = "";
+    let displayWin = document.createElement("div");
+    displayWin.innerText = "You won!";
+    heading.append(displayWin);
   }
+
   checkTie();
 }
 
@@ -149,17 +154,6 @@ function checkWin() {
 function checkHorizontal() {
   for (let rows = 0; rows < boardMap.length; rows++) {
     for (let column = 0; column < rows.length; column++) {
-<<<<<<< HEAD
-
-      if (boardMap[rows][column] == 1) {
-        countOne++;
-        if (boardMap[rows][column + 1] == 2 || null) {
-          countOne = 0;
-        }
-        if (countOne == 4) {
-          return true;
-        }
-=======
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows][column + 1] == 1 &&
@@ -167,7 +161,6 @@ function checkHorizontal() {
         boardMap[rows][column + 3] == 1
       ) {
         return true;
->>>>>>> 6b68f10ffc338bcf337bd8df9e3aad09bc504a93
       }
       if (
         boardMap[rows][column] == 2 &&
@@ -260,30 +253,32 @@ function checkTie() {
     columnSix.childElementCount == 6 &&
     columnSeven.childElementCount == 6
   ) {
-    let heading = document.getElementById("heading");
+    let tieGame = document.getElementById("tieGame");
     let displayTie = document.createElement("div");
     displayTie.innerText = "Tie game!";
-    heading.append(displayTie);
+    tieGame.append(displayTie);
+    let heading = document.getElementById("heading");
+    heading.innerHTML = "";
   }
 }
 
 function switchPlayer() {
   if (currentPlayer == 1) {
-    let heading = document.getElementById("heading")
+    let heading = document.getElementById("heading");
     heading.innerHTML = "";
     currentPlayer = 2;
-    let blackturn = document.createElement("div")
-    blackturn.innerText = "Red Turn"
-    console.log(blackturn)
-    heading.append(blackturn)
+    let blackturn = document.createElement("div");
+    blackturn.innerText = "Red Turn";
+    console.log(blackturn);
+    heading.append(blackturn);
   } else if (currentPlayer == 2) {
-    let heading = document.getElementById("heading")
+    let heading = document.getElementById("heading");
     heading.innerHTML = "";
     currentPlayer = 1;
-    let Redturn = document.createElement("div")
-    Redturn.innerText = "Black Turn"
-    console.log(Redturn)
-    heading.append(Redturn)
+    let Redturn = document.createElement("div");
+    Redturn.innerText = "Black Turn";
+    console.log(Redturn);
+    heading.append(Redturn);
   }
 }
 
