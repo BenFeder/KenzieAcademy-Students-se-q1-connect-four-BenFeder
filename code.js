@@ -135,6 +135,18 @@ function updateBoardMap() {
   }
 }
 
+function checkWin() {
+  // code goes here
+}
+
+function checkTie() {
+  // code goes here
+}
+
+function switchPlayer() {
+  // code goes here
+}
+
 //   // check how many dics are already placed in column, with discs already appended to squares in column
 //   // if there are already six discs in that column, return and do not allow new disc to be placed
 //   // check who's turn it is to drop piece, either red or black
