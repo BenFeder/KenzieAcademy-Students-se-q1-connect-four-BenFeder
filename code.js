@@ -40,9 +40,9 @@ function dropPiece(event) {
     currentPlayer.className = "disc redDisc";
     event.currentTarget.append(currentPlayer);
     updateBoardMap();
-    switchPlayer();
     checkWin();
     checkTie();
+    switchPlayer();
   }
 }
 
