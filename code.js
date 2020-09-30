@@ -33,16 +33,24 @@ function startGame() {
   columnSeven.addEventListener("click", dropPiece);
 }
 
+let currentPlayer = "2";
+
 function dropPiece(event) {
   // check which column was clicked with event.currentTarget
   if (event.currentTarget.childElementCount < 6) {
-    let currentPlayer = document.createElement("div");
-    currentPlayer.className = "disc redDisc";
-    event.currentTarget.append(currentPlayer);
+    switchPlayer();
+    if (currentPlayer == "1") {
+      let currentPiece = document.createElement("div");
+      currentPiece.className = "disc redDisc";
+      event.currentTarget.append(currentPiece);
+    } else if (currentPlayer == "2") {
+      let currentPiece = document.createElement("div");
+      currentPiece.className = "disc blackDisc";
+      event.currentTarget.append(currentPiece);
+    }
     updateBoardMap();
     checkWin();
     checkTie();
-    switchPlayer();
   }
 }
 
@@ -144,7 +152,11 @@ function checkTie() {
 }
 
 function switchPlayer() {
-  // code goes here
+  if (currentPlayer == "1") {
+    currentPlayer = "2";
+  } else if (currentPlayer == "2") {
+    currentPlayer = "1";
+  }
 }
 
 //   // check how many dics are already placed in column, with discs already appended to squares in column
