@@ -59,11 +59,9 @@ function updateBoardMap() {
     if (columnOne.childElementCount > 0) {
       let columnOneChildren = columnOne.childElementCount;
       for (let child = 0; child < columnOneChildren; child++) {
-        if (columnOne.childElement[child].style.backgroundColor == "red") {
+        if (columnOne.children[child].style.backgroundColor == "red") {
           boardMap[rows][0] = 1;
-        } else if (
-          columnOne.childElement[child].style.backgroundColor == "black"
-        ) {
+        } else if (columnOne.children[child].style.backgroundColor == "black") {
           boardMap[rows][0] = 2;
         }
       }
@@ -71,11 +69,9 @@ function updateBoardMap() {
     if (columnTwo.childElementCount > 0) {
       let columnTwoChildren = columnTwo.childElementCount;
       for (let child = 0; child < columnTwoChildren; child++) {
-        if (columnTwo.childElement[child].style.backgroundColor == "red") {
+        if (columnTwo.children[child].style.backgroundColor == "red") {
           boardMap[rows][1] = 1;
-        } else if (
-          columnTwo.childElement[child].style.backgroundColor == "black"
-        ) {
+        } else if (columnTwo.children[child].style.backgroundColor == "black") {
           boardMap[rows][1] = 2;
         }
       }
@@ -83,10 +79,10 @@ function updateBoardMap() {
     if (columnThree.childElementCount > 0) {
       let columnThreeChildren = columnThree.childElementCount;
       for (let child = 0; child < columnThreeChildren; child++) {
-        if (columnThree.childElement[child].style.backgroundColor == "red") {
+        if (columnThree.children[child].style.backgroundColor == "red") {
           boardMap[rows][2] = 1;
         } else if (
-          columnThree.childElement[child].style.backgroundColor == "black"
+          columnThree.children[child].style.backgroundColor == "black"
         ) {
           boardMap[rows][2] = 2;
         }
@@ -95,10 +91,10 @@ function updateBoardMap() {
     if (columnFour.childElementCount > 0) {
       let columnFourChildren = columnFour.childElementCount;
       for (let child = 0; child < columnFourChildren; child++) {
-        if (columnFour.childElement[child].style.backgroundColor == "red") {
+        if (columnFour.children[child].style.backgroundColor == "red") {
           boardMap[rows][3] = 1;
         } else if (
-          columnFour.childElement[child].style.backgroundColor == "black"
+          columnFour.children[child].style.backgroundColor == "black"
         ) {
           boardMap[rows][3] = 2;
         }
@@ -107,10 +103,10 @@ function updateBoardMap() {
     if (columnFive.childElementCount > 0) {
       let columnFiveChildren = columnFive.childElementCount;
       for (let child = 0; child < columnFiveChildren; child++) {
-        if (columnFive.childElement[child].style.backgroundColor == "red") {
+        if (columnFive.children[child].style.backgroundColor == "red") {
           boardMap[rows][4] = 1;
         } else if (
-          columnFive.childElement[child].style.backgroundColor == "black"
+          columnFive.children[child].style.backgroundColor == "black"
         ) {
           boardMap[rows][4] = 2;
         }
@@ -119,11 +115,9 @@ function updateBoardMap() {
     if (columnSix.childElementCount > 0) {
       let columnSixChildren = columnSix.childElementCount;
       for (let child = 0; child < columnSixChildren; child++) {
-        if (columnSix.childElement[child].style.backgroundColor == "red") {
+        if (columnSix.children[child].style.backgroundColor == "red") {
           boardMap[rows][5] = 1;
-        } else if (
-          columnSix.childElement[child].style.backgroundColor == "black"
-        ) {
+        } else if (columnSix.children[child].style.backgroundColor == "black") {
           boardMap[rows][5] = 2;
         }
       }
@@ -131,10 +125,10 @@ function updateBoardMap() {
     if (columnSeven.childElementCount > 0) {
       let columnSevenChildren = columnSeven.childElementCount;
       for (let child = 0; child < columnSevenChildren; child++) {
-        if (columnSeven.childElement[child].style.backgroundColor == "red") {
+        if (columnSeven.children[child].style.backgroundColor == "red") {
           boardMap[rows][6] = 1;
         } else if (
-          columnSeven.childElement[child].style.backgroundColor == "black"
+          columnSeven.children[child].style.backgroundColor == "black"
         ) {
           boardMap[rows][6] = 2;
         }
@@ -151,42 +145,83 @@ function checkWin() {
 }
 
 function checkHorizontal() {
-  for (let rows =0; rows<boardMap.length; rows++) {
-    for (let column =0; column < rows.length; column++) {
-       let countOne = 0
-       let countTwo = 0
-       
-    } if (boardMap[rows][column] == 1) {
+  for (let rows = 0; rows < boardMap.length; rows++) {
+    for (let column = 0; column < rows.length; column++) {
+      let countOne = 0;
+      let countTwo = 0;
+
+      if (boardMap[rows][column] == 1) {
         countOne++;
-        if(boardMap[rows][column +1]  == 2 || null) {
-            countOne = 0
+        if (boardMap[rows][column + 1] == 2 || null) {
+          countOne = 0;
         }
         if (countOne == 4) {
-            return true
-        } 
-    } if (boardMap[rows][column] == 2) {
+          return true;
+        }
+      }
+      if (boardMap[rows][column] == 2) {
         countTwo++;
-        if(boardMap[rows][column +1] == 1|| null) {
-            countTwo= 0
+        if (boardMap[rows][column + 1] == 1 || null) {
+          countTwo = 0;
         }
-        if(countTwo == 4) {
-            return true
+        if (countTwo == 4) {
+          return true;
         }
-    } 
-
-      //Check each row and record the value ( 1 or 2) 
-      //If row == 1 && row+1 == to 2 stop checking
-      //If row == 1 && row + 1==1 && row + 2 = 1 && row
-  } 
-    
+      }
+    }
+  }
 }
 
 function checkVertical() {
-  
+  for (let column = 0; column < rows.length; column++) {
+    let countOne = 0;
+    let countTwo = 0;
+
+    if (boardMap[rows][column] == 1) {
+      countOne++;
+      if (boardMap[rows + 1][column] == 2 || null) {
+        countOne = 0;
+      }
+      if (countOne == 4) {
+        return true;
+      }
+    }
+    if (boardMap[rows][column] == 2) {
+      countTwo++;
+      if (boardMap[rows + 1][column] == 1 || null) {
+        countTwo = 0;
+      }
+      if (countTwo == 4) {
+        return true;
+      }
+    }
+  }
 }
 
 function checkDiagonalDown() {
-  // code goes here
+  for (let column = 0; column < rows.length; column++) {
+    let countOne = 0;
+    let countTwo = 0;
+
+    if (boardMap[rows][column] == 1 && boardMap[rows + 1][column + 1] == 1) {
+      countOne++;
+      if (boardMap[rows + 1][column + 1] == 2 || null) {
+        countOne = 0;
+      }
+      if (countOne == 4) {
+        return true;
+      }
+    }
+    if (boardMap[rows][column] == 2 && boardMap[rows + 1][column + 1] == 2) {
+      countTwo++;
+      if (boardMap[rows + 1][column + 1] == 1 || null) {
+        countTwo = 0;
+      }
+      if (countTwo == 4) {
+        return true;
+      }
+    }
+  }
 }
 
 function checkDiagonalUp() {
