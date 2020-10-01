@@ -174,7 +174,7 @@ function checkHorizontal() {
 
 function checkVertical() {
   for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length - 1; column++) {
+    for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column] == 1 &&
