@@ -48,21 +48,18 @@ function dropPiece(event) {
       currentPiece.className = "disc blackDisc";
       event.currentTarget.append(currentPiece);
     }
-    
-    updateBoardMap();
 
+    updateBoardMap();
   }
   if (checkWin()) {
-    let resultMsg= document.getElementById("resultMsg");
+    let resultMsg = document.getElementById("resultMsg");
     resultMsg.innerHTML = "";
     if (currentPlayer == 1) {
       resultMsg.innerText = "Red won!";
     } else if (currentPlayer == 2) {
       resultMsg.innerText = "Black won!";
-      
     }
   }
-  
 
   checkTie();
 }
@@ -143,15 +140,19 @@ function updateBoardMap() {
 }
 
 function checkWin() {
-  if (checkHorizontal()||checkVertical()|| checkDiagonalUp()||checkDiagonalDown()) {
-    return true
+  if (
+    checkHorizontal() ||
+    checkVertical() ||
+    checkDiagonalUp() ||
+    checkDiagonalDown()
+  ) {
+    return true;
   }
 }
 
-
 function checkHorizontal() {
-  for (let rows = boardMap.length-1; rows >0 ; rows--) {
-    for (let column = 0; column < boardMap[rows].length; column++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
+    for (let column = 0; column < boardMap[rows].length - 1; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows][column + 1] == 1 &&
@@ -159,8 +160,7 @@ function checkHorizontal() {
         boardMap[rows][column + 3] == 1
       ) {
         return true;
-      }
-      else if (
+      } else if (
         boardMap[rows][column] == 2 &&
         boardMap[rows][column + 1] == 2 &&
         boardMap[rows][column + 2] == 2 &&
@@ -173,8 +173,8 @@ function checkHorizontal() {
 }
 
 function checkVertical() {
-  for (let rows = 0; rows < boardMap.length-1; rows++) {
-    for (let column = 0; column < rows.length-1; column++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
+    for (let column = 0; column < boardMap[rows].length - 1; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column] == 1 &&
