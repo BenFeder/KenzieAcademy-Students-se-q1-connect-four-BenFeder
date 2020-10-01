@@ -53,11 +53,18 @@ function dropPiece(event) {
   }
   if (checkWin()) {
     let resultMsg = document.getElementById("resultMsg");
-    resultMsg.innerHTML = "";
+    let playAgain = document.createElement("button");
+    playAgain.innerHTML = "Play again";
+    playAgain.addEventListener("click", function () {
+      location.reload();
+    });
     if (currentPlayer == 1) {
-      resultMsg.innerText = "Red won!";
+      resultMsg.innerHTML = "Red won! <br />";
+      resultMsg.append(playAgain);
+      heading.innerHTML = "";
     } else if (currentPlayer == 2) {
-      resultMsg.innerText = "Black won!";
+      resultMsg.innerHTML = "Black won! <br />";
+      resultMsg.append(playAgain);
     }
   }
   if (checkTie()) {
@@ -158,7 +165,7 @@ function checkWin() {
 
 function checkHorizontal() {
   for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length - 1; column++) {
+    for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows][column + 1] == 1 &&
@@ -188,8 +195,7 @@ function checkVertical() {
         boardMap[rows + 3][column] == 1
       ) {
         return true;
-      }
-      if (
+      } else if (
         boardMap[rows][column] == 2 &&
         boardMap[rows + 1][column] == 2 &&
         boardMap[rows + 2][column] == 2 &&
@@ -211,8 +217,7 @@ function checkDiagonalUp() {
         boardMap[rows + 3][column + 3] == 1
       ) {
         return true;
-      }
-      if (
+      } else if (
         boardMap[rows][column] == 2 &&
         boardMap[rows + 1][column + 1] == 2 &&
         boardMap[rows + 2][column + 2] == 2 &&
@@ -234,8 +239,7 @@ function checkDiagonalDown() {
         boardMap[rows + 3][column - 3] == 1
       ) {
         return true;
-      }
-      if (
+      } else if (
         boardMap[rows][column] == 2 &&
         boardMap[rows + 1][column - 1] == 2 &&
         boardMap[rows + 2][column - 2] == 2 &&
