@@ -54,90 +54,87 @@ function dropPiece(event) {
     let heading = document.getElementById("heading");
     heading.innerHTML = "";
     let displayWin = document.createElement("div");
-    displayWin.innerText = "You won!";
-    heading.append(displayWin);
+    if (curentPlayer == 1) {
+      displayWin.innerText = "Red won!";
+      heading.append(displayWin);
+    } else if (curentPlayer == 2) {
+      displayWin.innerText = "Black won!";
+      heading.append(displayWin);
+    }
   }
 
   checkTie();
 }
 
 function updateBoardMap() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
+  for (let rows = boardMap.length; rows >= 0; rows--) {
     if (columnOne.childElementCount > 0) {
       let columnOneChildren = columnOne.childElementCount;
       for (let child = 0; child < columnOneChildren; child++) {
-        if (columnOne.children[child].style.backgroundColor == "red") {
-          boardMap[rows][0] = 1;
-        } else if (columnOne.children[child].style.backgroundColor == "black") {
-          boardMap[rows][0] = 2;
+        if (columnOne.children[child].className == "disc redDisc") {
+          boardMap[child][0] = 1;
+        } else if (columnOne.children[child].className == "disc blackDisc") {
+          boardMap[child][0] = 2;
         }
       }
     }
     if (columnTwo.childElementCount > 0) {
       let columnTwoChildren = columnTwo.childElementCount;
       for (let child = 0; child < columnTwoChildren; child++) {
-        if (columnTwo.children[child].style.backgroundColor == "red") {
-          boardMap[rows][1] = 1;
-        } else if (columnTwo.children[child].style.backgroundColor == "black") {
-          boardMap[rows][1] = 2;
+        if (columnTwo.children[child].className == "disc redDisc") {
+          boardMap[child][1] = 1;
+        } else if (columnTwo.children[child].className == "disc blackDisc") {
+          boardMap[child][1] = 2;
         }
       }
     }
     if (columnThree.childElementCount > 0) {
       let columnThreeChildren = columnThree.childElementCount;
       for (let child = 0; child < columnThreeChildren; child++) {
-        if (columnThree.children[child].style.backgroundColor == "red") {
-          boardMap[rows][2] = 1;
-        } else if (
-          columnThree.children[child].style.backgroundColor == "black"
-        ) {
-          boardMap[rows][2] = 2;
+        if (columnThree.children[child].className == "disc redDisc") {
+          boardMap[child][2] = 1;
+        } else if (columnThree.children[child].className == "disc blackDisc") {
+          boardMap[child][2] = 2;
         }
       }
     }
     if (columnFour.childElementCount > 0) {
       let columnFourChildren = columnFour.childElementCount;
       for (let child = 0; child < columnFourChildren; child++) {
-        if (columnFour.children[child].style.backgroundColor == "red") {
-          boardMap[rows][3] = 1;
-        } else if (
-          columnFour.children[child].style.backgroundColor == "black"
-        ) {
-          boardMap[rows][3] = 2;
+        if (columnFour.children[child].className == "disc redDisc") {
+          boardMap[child][3] = 1;
+        } else if (columnFour.children[child].className == "disc blackDisc") {
+          boardMap[child][3] = 2;
         }
       }
     }
     if (columnFive.childElementCount > 0) {
       let columnFiveChildren = columnFive.childElementCount;
       for (let child = 0; child < columnFiveChildren; child++) {
-        if (columnFive.children[child].style.backgroundColor == "red") {
-          boardMap[rows][4] = 1;
-        } else if (
-          columnFive.children[child].style.backgroundColor == "black"
-        ) {
-          boardMap[rows][4] = 2;
+        if (columnFive.children[child].className == "disc redDisc") {
+          boardMap[child][4] = 1;
+        } else if (columnFive.children[child].className == "disc blackDisc") {
+          boardMap[child][4] = 2;
         }
       }
     }
     if (columnSix.childElementCount > 0) {
       let columnSixChildren = columnSix.childElementCount;
       for (let child = 0; child < columnSixChildren; child++) {
-        if (columnSix.children[child].style.backgroundColor == "red") {
-          boardMap[rows][5] = 1;
-        } else if (columnSix.children[child].style.backgroundColor == "black") {
-          boardMap[rows][5] = 2;
+        if (columnSix.children[child].className == "disc redDisc") {
+          boardMap[child][5] = 1;
+        } else if (columnSix.children[child].className == "disc blackDisc") {
+          boardMap[child][5] = 2;
         }
       }
     }
     if (columnSeven.childElementCount > 0) {
       let columnSevenChildren = columnSeven.childElementCount;
       for (let child = 0; child < columnSevenChildren; child++) {
-        if (columnSeven.children[child].style.backgroundColor == "red") {
-          boardMap[rows][6] = 1;
-        } else if (
-          columnSeven.children[child].style.backgroundColor == "black"
-        ) {
-          boardMap[rows][6] = 2;
+        if (columnSeven.children[child].className == "disc redDisc") {
+          boardMap[child][6] = 1;
+        } else if (columnSeven.children[child].className == "disc blackDisc") {
+          boardMap[child][6] = 2;
         }
       }
     }
