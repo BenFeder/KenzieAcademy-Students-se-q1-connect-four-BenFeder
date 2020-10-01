@@ -149,7 +149,7 @@ function checkWin() {
 }
 
 function checkHorizontal() {
-  for (let rows = 0; rows < boardMap.length; rows++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
     for (let column = 0; column < rows.length; column++) {
       if (
         boardMap[rows][column] == 1 &&
@@ -172,7 +172,7 @@ function checkHorizontal() {
 }
 
 function checkVertical() {
-  for (let rows = 0; rows < boardMap.length; rows++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
     for (let column = 0; column < rows.length; column++) {
       if (
         boardMap[rows][column] == 1 &&
@@ -195,7 +195,7 @@ function checkVertical() {
 }
 
 function checkDiagonalUp() {
-  for (let rows = 0; rows < boardMap.length; rows++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
     for (let column = 0; column < rows.length; column++) {
       if (
         boardMap[rows][column] == 1 &&
@@ -218,7 +218,7 @@ function checkDiagonalUp() {
 }
 
 function checkDiagonalDown() {
-  for (let rows = 0; rows < boardMap.length; rows++) {
+  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
     for (let column = 0; column < rows.length; column++) {
       if (
         boardMap[rows][column] == 1 &&
