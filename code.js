@@ -150,7 +150,7 @@ function checkWin() {
 
 function checkHorizontal() {
   for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < rows.length; column++) {
+    for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows][column + 1] == 1 &&
@@ -173,7 +173,7 @@ function checkHorizontal() {
 
 function checkVertical() {
   for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < rows.length; column++) {
+    for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column] == 1 &&
@@ -196,7 +196,7 @@ function checkVertical() {
 
 function checkDiagonalUp() {
   for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < rows.length; column++) {
+    for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column + 1] == 1 &&
@@ -219,20 +219,20 @@ function checkDiagonalUp() {
 
 function checkDiagonalDown() {
   for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < rows.length; column++) {
+    for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
-        boardMap[rows - 1][column + 1] == 1 &&
-        boardMap[rows - 2][column + 2] == 1 &&
-        boardMap[rows - 3][column + 3] == 1
+        boardMap[rows + 1][column - 1] == 1 &&
+        boardMap[rows + 2][column - 2] == 1 &&
+        boardMap[rows + 3][column - 3] == 1
       ) {
         return true;
       }
       if (
         boardMap[rows][column] == 2 &&
-        boardMap[rows - 1][column + 1] == 2 &&
-        boardMap[rows - 2][column + 2] == 2 &&
-        boardMap[rows - 3][column + 3] == 2
+        boardMap[rows + 1][column - 1] == 2 &&
+        boardMap[rows + 2][column - 2] == 2 &&
+        boardMap[rows + 3][column - 3] == 2
       ) {
         return true;
       }
