@@ -266,7 +266,6 @@ function switchPlayer() {
     currentPlayer = 2;
     let blackturn = document.createElement("div");
     blackturn.innerText = "Red Turn";
-    console.log(blackturn);
     heading.append(blackturn);
   } else if (currentPlayer == 2) {
     let heading = document.getElementById("heading");
@@ -274,7 +273,6 @@ function switchPlayer() {
     currentPlayer = 1;
     let Redturn = document.createElement("div");
     Redturn.innerText = "Black Turn";
-    console.log(Redturn);
     heading.append(Redturn);
   }
 }
