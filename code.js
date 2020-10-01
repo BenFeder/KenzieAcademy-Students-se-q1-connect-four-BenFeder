@@ -60,8 +60,14 @@ function dropPiece(event) {
       resultMsg.innerText = "Black won!";
     }
   }
-
-  checkTie();
+  if (checkTie()) {
+    let tieGame = document.getElementById("tieGame");
+    let displayTie = document.createElement("div");
+    displayTie.innerText = "Tie game!";
+    tieGame.append(displayTie);
+    let heading = document.getElementById("heading");
+    heading.innerHTML = "";
+  }
 }
 
 function updateBoardMap() {
@@ -251,12 +257,7 @@ function checkTie() {
     columnSix.childElementCount == 6 &&
     columnSeven.childElementCount == 6
   ) {
-    let tieGame = document.getElementById("tieGame");
-    let displayTie = document.createElement("div");
-    displayTie.innerText = "Tie game!";
-    tieGame.append(displayTie);
-    let heading = document.getElementById("heading");
-    heading.innerHTML = "";
+    return true;
   }
 }
 
@@ -277,3 +278,12 @@ function switchPlayer() {
     heading.append(Redturn);
   }
 }
+
+function testCheckWin() {
+  let testWin = checkWin();
+  console.assert(
+    checkWin() === true,
+    JSON.stringify({ function: "checkWin()", expected: true, result: testWin })
+  );
+}
+testCheckWin();
