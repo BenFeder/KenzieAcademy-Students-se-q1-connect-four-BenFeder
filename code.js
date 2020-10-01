@@ -48,20 +48,21 @@ function dropPiece(event) {
       currentPiece.className = "disc blackDisc";
       event.currentTarget.append(currentPiece);
     }
+    
     updateBoardMap();
+
   }
   if (checkWin()) {
-    let heading = document.getElementById("heading");
-    heading.innerHTML = "";
-    let displayWin = document.createElement("div");
-    if (curentPlayer == 1) {
-      displayWin.innerText = "Red won!";
-      heading.append(displayWin);
-    } else if (curentPlayer == 2) {
-      displayWin.innerText = "Black won!";
-      heading.append(displayWin);
+    let resultMsg= document.getElementById("resultMsg");
+    resultMsg.innerHTML = "";
+    if (currentPlayer == 1) {
+      resultMsg.innerText = "Red won!";
+    } else if (currentPlayer == 2) {
+      resultMsg.innerText = "Black won!";
+      
     }
   }
+  
 
   checkTie();
 }
@@ -142,14 +143,14 @@ function updateBoardMap() {
 }
 
 function checkWin() {
-  checkHorizontal();
-  checkVertical();
-  checkDiagonalDown();
-  checkDiagonalUp();
+  if (checkHorizontal()||checkVertical()|| checkDiagonalUp()||checkDiagonalDown()) {
+    return true
+  }
 }
 
+
 function checkHorizontal() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
+  for (let rows = boardMap.length-1; rows >0 ; rows--) {
     for (let column = 0; column < boardMap[rows].length; column++) {
       if (
         boardMap[rows][column] == 1 &&
@@ -159,7 +160,7 @@ function checkHorizontal() {
       ) {
         return true;
       }
-      if (
+      else if (
         boardMap[rows][column] == 2 &&
         boardMap[rows][column + 1] == 2 &&
         boardMap[rows][column + 2] == 2 &&
@@ -172,8 +173,8 @@ function checkHorizontal() {
 }
 
 function checkVertical() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length; column++) {
+  for (let rows = 0; rows < boardMap.length-1; rows++) {
+    for (let column = 0; column < rows.length-1; column++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column] == 1 &&
