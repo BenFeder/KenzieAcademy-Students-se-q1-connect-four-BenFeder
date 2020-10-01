@@ -52,6 +52,7 @@ function dropPiece(event) {
     updateBoardMap();
   }
   if (checkWin()) {
+    heading.innerHTML = "";
     let resultMsg = document.getElementById("resultMsg");
     let playAgain = document.createElement("button");
     playAgain.innerHTML = "Play again";
@@ -61,7 +62,6 @@ function dropPiece(event) {
     if (currentPlayer == 1) {
       resultMsg.innerHTML = "Red won! <br />";
       resultMsg.append(playAgain);
-      heading.innerHTML = "";
     } else if (currentPlayer == 2) {
       resultMsg.innerHTML = "Black won! <br />";
       resultMsg.append(playAgain);
