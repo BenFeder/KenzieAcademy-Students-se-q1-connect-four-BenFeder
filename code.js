@@ -51,15 +51,13 @@ function dropPiece(event) {
 
     updateBoardMap();
     console.log(boardMap);
+    checkTie();
   }
   if (checkWin()) {
     heading.innerHTML = "";
     let resultMsg = document.getElementById("resultMsg");
     let playAgain = document.createElement("button");
-    playAgain.innerHTML = "Play again";
-    playAgain.addEventListener("click", function () {
-      location.reload();
-    });
+    createButton(playAgain);
     if (currentPlayer == 1) {
       resultMsg.innerHTML = "Red won! <br />";
       resultMsg.append(playAgain);
@@ -68,19 +66,13 @@ function dropPiece(event) {
       resultMsg.append(playAgain);
     }
   }
-  if (checkTie()) {
-    let tieGame = document.getElementById("tieGame");
-    let displayTie = document.createElement("div");
-    displayTie.innerText = "Tie game!";
-    tieGame.append(displayTie);
-    let playAgain = document.createElement("button");
-    playAgain.innerHTML = "Play again";
-    playAgain.addEventListener("click", function () {
-      location.reload();
-    });
-    let heading = document.getElementById("heading");
-    heading.innerHTML = "";
-  }
+}
+
+function createButton(playAgain) {
+  playAgain.innerHTML = "Play again";
+  playAgain.addEventListener("click", function () {
+    location.reload();
+  });
 }
 
 function updateBoardMap() {
@@ -170,8 +162,8 @@ function checkWin() {
 }
 
 function checkHorizontal() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length; column++) {
+  for (let column = 6; column >= 0; column--) {
+    for (let rows = 0; rows < 6; rows++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows][column + 1] == 1 &&
@@ -194,8 +186,8 @@ function checkHorizontal() {
 }
 
 function checkVertical() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length; column++) {
+  for (let column = 6; column >= 0; column--) {
+    for (let rows = 0; rows < boardMap.length - 1; rows++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column] == 1 &&
@@ -218,8 +210,8 @@ function checkVertical() {
 }
 
 function checkDiagonalUp() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length; column++) {
+  for (let column = 6; column >= 0; column--) {
+    for (let rows = 0; rows < boardMap.length - 1; rows++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column + 1] == 1 &&
@@ -242,8 +234,8 @@ function checkDiagonalUp() {
 }
 
 function checkDiagonalDown() {
-  for (let rows = boardMap.length - 1; rows >= 0; rows--) {
-    for (let column = 0; column < boardMap[rows].length; column++) {
+  for (let column = 6; column >= 0; column--) {
+    for (let rows = 0; rows < 3; rows++) {
       if (
         boardMap[rows][column] == 1 &&
         boardMap[rows + 1][column - 1] == 1 &&
@@ -275,6 +267,16 @@ function checkTie() {
     columnSix.childElementCount == 6 &&
     columnSeven.childElementCount == 6
   ) {
+    console.log("We have a tie.");
+    let tieGame = document.getElementById("tieGame");
+    let displayTie = document.createElement("div");
+    displayTie.innerText = "Tie game!";
+    tieGame.append(displayTie);
+    let playAgain = document.createElement("button");
+    createButton(playAgain);
+    let heading = document.getElementById("heading");
+    heading.innerHTML = "";
+    tieGame.append(playAgain);
     return true;
   }
 }
