@@ -50,6 +50,7 @@ function dropPiece(event) {
     }
 
     updateBoardMap();
+    console.log(boardMap);
   }
   if (checkWin()) {
     heading.innerHTML = "";
@@ -72,6 +73,11 @@ function dropPiece(event) {
     let displayTie = document.createElement("div");
     displayTie.innerText = "Tie game!";
     tieGame.append(displayTie);
+    let playAgain = document.createElement("button");
+    playAgain.innerHTML = "Play again";
+    playAgain.addEventListener("click", function () {
+      location.reload();
+    });
     let heading = document.getElementById("heading");
     heading.innerHTML = "";
   }
@@ -172,6 +178,7 @@ function checkHorizontal() {
         boardMap[rows][column + 2] == 1 &&
         boardMap[rows][column + 3] == 1
       ) {
+        console.log("horizontal red win");
         return true;
       } else if (
         boardMap[rows][column] == 2 &&
@@ -179,6 +186,7 @@ function checkHorizontal() {
         boardMap[rows][column + 2] == 2 &&
         boardMap[rows][column + 3] == 2
       ) {
+        console.log("horizontal black win");
         return true;
       }
     }
@@ -194,6 +202,7 @@ function checkVertical() {
         boardMap[rows + 2][column] == 1 &&
         boardMap[rows + 3][column] == 1
       ) {
+        console.log("vertical red win");
         return true;
       } else if (
         boardMap[rows][column] == 2 &&
@@ -201,6 +210,7 @@ function checkVertical() {
         boardMap[rows + 2][column] == 2 &&
         boardMap[rows + 3][column] == 2
       ) {
+        console.log("vertical black win");
         return true;
       }
     }
@@ -216,6 +226,7 @@ function checkDiagonalUp() {
         boardMap[rows + 2][column + 2] == 1 &&
         boardMap[rows + 3][column + 3] == 1
       ) {
+        console.log("Diagonal up red win");
         return true;
       } else if (
         boardMap[rows][column] == 2 &&
@@ -223,6 +234,7 @@ function checkDiagonalUp() {
         boardMap[rows + 2][column + 2] == 2 &&
         boardMap[rows + 3][column + 3] == 2
       ) {
+        console.log("Diagonal up black win");
         return true;
       }
     }
@@ -238,6 +250,7 @@ function checkDiagonalDown() {
         boardMap[rows + 2][column - 2] == 1 &&
         boardMap[rows + 3][column - 3] == 1
       ) {
+        console.log("Diagonal down red win");
         return true;
       } else if (
         boardMap[rows][column] == 2 &&
@@ -245,6 +258,7 @@ function checkDiagonalDown() {
         boardMap[rows + 2][column - 2] == 2 &&
         boardMap[rows + 3][column - 3] == 2
       ) {
+        console.log("Diagonal down black win");
         return true;
       }
     }
